@@ -45,7 +45,6 @@
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-arc-deployment</artifactId>
-            <version>${quarkus.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>

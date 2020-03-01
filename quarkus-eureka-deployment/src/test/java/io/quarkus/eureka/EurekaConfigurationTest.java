@@ -25,6 +25,7 @@ import io.quarkus.test.QuarkusUnitTest;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -92,7 +93,7 @@ public class EurekaConfigurationTest {
         WebTarget sampleWebTarget = eurekaClient.app("sample");
         assertThat(sampleWebTarget)
                 .isNotNull()
-                .extracting("uri").asString().isEqualTo("http://10.34.37.227:9991/");
+                .extracting("uri").asString().isEqualTo("http://127.0.0.1:9991/");
 
         wireMockServer.verify(1, getRequestedFor(urlEqualTo("/eureka/apps/SAMPLE")));
     }
@@ -110,15 +111,15 @@ public class EurekaConfigurationTest {
         WebTarget sampleWebTarget = eurekaClientRB.app("sample");
         assertThat(sampleWebTarget)
                 .isNotNull()
-                .extracting("uri").asString().isEqualTo("http://10.34.37.227:9991/");
+                .extracting("uri").asString().isEqualTo("http://127.0.0.1:9991/");
         WebTarget sampleWebTarget2 = eurekaClientRB.app("sample");
         assertThat(sampleWebTarget2)
                 .isNotNull()
-                .extracting("uri").asString().isEqualTo("http://10.34.37.227:9992/");
+                .extracting("uri").asString().isEqualTo("http://127.0.0.1:9992/");
         WebTarget sampleWebTarget3 = eurekaClientRB.app("sample");
         assertThat(sampleWebTarget3)
                 .isNotNull()
-                .extracting("uri").asString().isEqualTo("http://10.34.37.227:9991/");
+                .extracting("uri").asString().isEqualTo("http://127.0.0.1:9991/");
 
         wireMockServer.verify(1, getRequestedFor(urlEqualTo("/eureka/apps/SAMPLE")));
     }

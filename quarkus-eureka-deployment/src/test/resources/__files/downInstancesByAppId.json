@@ -3,10 +3,10 @@
     "name": "SAMPLE",
     "instance": [
       {
-        "instanceId": "10.34.37.227:sample:9991",
-        "hostName": "10.34.37.227",
+        "instanceId": "127.0.0.1:sample:9991",
+        "hostName": "127.0.0.1",
         "app": "SAMPLE",
-        "ipAddr": "10.34.37.227",
+        "ipAddr": "127.0.0.1",
         "status": "DOWN",
         "overriddenStatus": "UNKNOWN",
         "port": {
@@ -33,9 +33,9 @@
         "metadata": {
           "management.port": "9991"
         },
-        "homePageUrl": "http://10.34.37.227:9991/",
-        "statusPageUrl": "http://10.34.37.227:9991/actuator/info",
-        "healthCheckUrl": "http://10.34.37.227:9991/actuator/health",
+        "homePageUrl": "http://127.0.0.1:9991/",
+        "statusPageUrl": "http://127.0.0.1:9991/actuator/info",
+        "healthCheckUrl": "http://127.0.0.1:9991/actuator/health",
         "vipAddress": "sample",
         "secureVipAddress": "sample",
         "isCoordinatingDiscoveryServer": "false",

@@ -20,6 +20,7 @@ import com.github.tomakehurst.wiremock.WireMockServer;
 import io.quarkus.eureka.client.Status;
 import io.quarkus.eureka.config.Location;
 
+import io.quarkus.eureka.operation.SmallRyeConfigInitializer;
 import org.jboss.resteasy.spi.NotImplementedYetException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -34,7 +35,7 @@ import static java.lang.String.format;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-public class QueryOperationTest {
+public class QueryOperationTest extends SmallRyeConfigInitializer {
 
     private SingleInstanceQueryOperation singleInstanceQueryOperation;
     private MultipleInstanceQueryOperation multipleInstanceQueryOperation;
@@ -98,13 +99,13 @@ public class QueryOperationTest {
 
     @Test
     public void shouldFindInstanceByAppIDAndInstanceId() {
-        assertThatThrownBy(() -> singleInstanceQueryOperation.findInstance(location, "SAMPLE", "10.34.37.227"))
+        assertThatThrownBy(() -> singleInstanceQueryOperation.findInstance(location, "SAMPLE", "127.0.0.1"))
                 .isInstanceOf(NotImplementedYetException.class);
     }
 
     @Test
     public void shouldFindInstanceById() {
-        assertThatThrownBy(() -> singleInstanceQueryOperation.findInstanceById(location, "10.34.37.227"))
+        assertThatThrownBy(() -> singleInstanceQueryOperation.findInstanceById(location, "127.0.0.1"))
                 .isInstanceOf(NotImplementedYetException.class);
     }
 }

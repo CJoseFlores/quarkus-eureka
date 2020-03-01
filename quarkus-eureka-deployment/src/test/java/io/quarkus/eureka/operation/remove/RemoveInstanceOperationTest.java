@@ -17,11 +17,11 @@
 package io.quarkus.eureka.operation.remove;
 
 import com.github.tomakehurst.wiremock.WireMockServer;
+import io.quarkus.eureka.config.Location;
+import io.quarkus.eureka.operation.SmallRyeConfigInitializer;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import io.quarkus.eureka.config.Location;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.delete;
@@ -29,7 +29,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.deleteRequestedFor
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static io.quarkus.eureka.util.HostNameDiscovery.getHostname;
 
-class RemoveInstanceOperationTest {
+class RemoveInstanceOperationTest extends SmallRyeConfigInitializer {
 
     private RemoveInstanceOperation removeInstanceOperation;
 

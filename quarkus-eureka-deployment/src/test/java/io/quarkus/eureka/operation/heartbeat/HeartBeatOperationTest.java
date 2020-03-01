@@ -20,8 +20,13 @@ import com.github.tomakehurst.wiremock.WireMockServer;
 import com.github.tomakehurst.wiremock.http.Fault;
 import io.quarkus.eureka.client.InstanceInfo;
 import io.quarkus.eureka.config.Location;
+import io.quarkus.eureka.operation.SmallRyeConfigInitializer;
 import io.quarkus.eureka.test.config.TestInstanceInfoContext;
+import io.quarkus.runtime.configuration.QuarkusConfigFactory;
+import io.smallrye.config.SmallRyeConfig;
+import io.smallrye.config.SmallRyeConfigBuilder;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -32,7 +37,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.putRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static io.quarkus.eureka.util.HostNameDiscovery.getHostname;
 
-class HeartBeatOperationTest {
+class HeartBeatOperationTest extends SmallRyeConfigInitializer {
 
     private WireMockServer wireMockServer;
 
